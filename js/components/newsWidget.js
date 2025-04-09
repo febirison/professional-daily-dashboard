@@ -18,7 +18,6 @@ export class NewsWidget {
       return;
     }
 
-    // Display up to 3 articles
     this.container.innerHTML = `
       <h2>Business News Headlines</h2>
       <div class="news-articles">
@@ -26,7 +25,7 @@ export class NewsWidget {
           <div class="news-article">
             <h3>${article.title}</h3>
             <p>${article.description || 'No description available.'}</p>
-            <a href="${article.url}" target="_blank">Read more</a>
+            <a href="${article.link}" target="_blank">Read more</a>
           </div>
         `).join('')}
       </div>
