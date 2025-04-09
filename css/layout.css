@@ -1,0 +1,17 @@
+main {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    main {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    main {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }

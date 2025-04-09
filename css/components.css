@@ -1,0 +1,83 @@
+/* Components CSS for Weather  */
+/* Define color variables */
+#weatherForecast {
+    background-color: var(--soft-gray);
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .current-weather {
+    text-align: center;
+  }
+  
+  .current-weather p:first-child {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .current-weather img {
+    width: 64px;
+    height: 64px;
+  }
+  
+  .hourly-forecast {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+  }
+  
+  .hourly-forecast div {
+    text-align: center;
+  }
+  
+  .hourly-forecast img {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Components CSS for Business News Widgets */
+  #businessNews {
+    background-color: var(--soft-gray);
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .news-articles {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .news-article {
+    background-color: var(--soft-white);
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .news-article h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .news-article p {
+    font-size: 1rem;
+    color: var(--charcoal);
+    margin-bottom: 0.5rem;
+  }
+  
+  .news-article a {
+    color: var(--deep-blue);
+    text-decoration: none;
+  }
+  
+  .news-article a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive adjustments */
+  @media (min-width: 768px) {
+    #businessNews {
+      grid-column: span 2; /* Takes up more space on larger screens */
+    }
+  }
