@@ -1,0 +1,55 @@
+body.light {
+    --deep-blue: #1A5F7A;
+    --soft-white: #F8F9FA;
+    --charcoal: #2D3142;
+    --accent-blue: #57C4E5;
+    --soft-gray: #E0E0E0;
+  }
+  
+  body.dark {
+    --deep-blue: #0A2E3D;
+    --soft-white: #1C2526;
+    --charcoal: #D3D4D5;
+    --accent-blue: #3A9BBF;
+    --soft-gray: #2A3537;
+  }
+  
+  /* Ensure elements use the theme variables */
+  body {
+    background-color: var(--soft-white);
+    color: var(--charcoal);
+  }
+  
+  header, footer {
+    background-color: var(--deep-blue);
+    color: var(--soft-white);
+  }
+  
+  #profileBtn {
+    background-color: var(--accent-blue);
+  }
+  
+  nav {
+    background-color: var(--soft-gray);
+  }
+  
+  #weatherForecast, #dailyMotivation, #businessNews {
+    background-color: var(--soft-gray);
+  }
+  
+  .news-article {
+    background-color: var(--soft-white);
+    color: var(--charcoal);
+  }
+  
+  .news-article a {
+    color: var(--deep-blue);
+  }
+  
+  #dailyMotivation blockquote {
+    color: var(--charcoal);
+  }
+  
+  #dailyMotivation footer {
+    color: var(--deep-blue);
+  }
