@@ -275,44 +275,64 @@
 }
 
 #startTimerBtn, #resetTimerBtn {
-  padding: 0.9rem 2.5rem;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 1.1rem;
-  border: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
   position: relative;
-  overflow: hidden;
+  font-size: 17px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1em 2.5em;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 6em;
+  transition: all 0.2s;
+  border: none;
+  font-family: inherit;
+  font-weight: 500;
 }
 
 #startTimerBtn {
-  background: linear-gradient(135deg, var(--success-green), #43a047);
   color: white;
+  background-color: var(--success-green);
 }
 
 #resetTimerBtn {
-  background: linear-gradient(135deg, var(--alert-red), #e53935);
   color: white;
+  background-color: var(--alert-red);
 }
 
 #startTimerBtn:hover, #resetTimerBtn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-#startTimerBtn:hover {
-  background: linear-gradient(135deg, #66bb6a, #4caf50);
-}
-
-#resetTimerBtn:hover {
-  background: linear-gradient(135deg, #ef5350, #f44336);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 #startTimerBtn:active, #resetTimerBtn:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+#startTimerBtn::after, #resetTimerBtn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+#startTimerBtn::after {
+  background-color: var(--success-green);
+}
+
+#resetTimerBtn::after {
+  background-color: var(--alert-red);
+}
+
+#startTimerBtn:hover::after, #resetTimerBtn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
 }
 
 #noteInput {
