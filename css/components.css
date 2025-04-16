@@ -270,32 +270,49 @@
 .timer-controls {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
   margin-top: 1.5rem;
 }
 
 #startTimerBtn, #resetTimerBtn {
-  padding: 0.75rem 2rem;
-  border-radius: 4px;
+  padding: 0.9rem 2.5rem;
+  border-radius: 25px;
   cursor: pointer;
-  font-weight: 500;
-  transition: transform 0.2s ease;
+  font-weight: 600;
+  font-size: 1.1rem;
   border: none;
-  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 #startTimerBtn {
-  background-color: var(--success-green);
+  background: linear-gradient(135deg, var(--success-green), #43a047);
   color: white;
 }
 
 #resetTimerBtn {
-  background-color: var(--alert-red);
+  background: linear-gradient(135deg, var(--alert-red), #e53935);
   color: white;
 }
 
 #startTimerBtn:hover, #resetTimerBtn:hover {
-  transform: scale(1.05);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+#startTimerBtn:hover {
+  background: linear-gradient(135deg, #66bb6a, #4caf50);
+}
+
+#resetTimerBtn:hover {
+  background: linear-gradient(135deg, #ef5350, #f44336);
+}
+
+#startTimerBtn:active, #resetTimerBtn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #noteInput {
