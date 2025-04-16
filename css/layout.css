@@ -1,17 +1,133 @@
 main {
-    display: grid;
-    gap: 1rem;
-    padding: 1rem;
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  grid-template-columns: 1fr;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section {
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  overflow: hidden;
+}
+
+/* Mobile layout (default) */
+#weatherForecast {
+  order: 1;
+}
+
+#dailyMotivation {
+  order: 2;
+  background-color: white;
+  color: black;
+}
+
+#businessNews {
+  order: 3;
+}
+
+#todaysSchedule {
+  order: 4;
+}
+
+#focusTimer {
+  order: 5;
+}
+
+#quickNotes {
+  order: 6;
+  display: none; /* Hidden in both views based on wireframe */
+}
+
+/* Desktop layout */
+@media (min-width: 992px) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto;
+  }
+
+  #businessNews {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    order: 1;
+  }
+
+  #weatherForecast {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    order: 2;
+  }
+
+  #dailyMotivation {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    order: 3;
+  }
+
+  #todaysSchedule {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    order: 4;
+  }
+
+  #focusTimer {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+    order: 5;
+  }
+
+  #quickNotes {
+    display: none; /* Hidden in desktop view per screenshot */
+  }
+}
+
+/* Bottom navigation bar (only for mobile) */
+nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #ccc;
+  padding: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.navBtn {
+  background: none;
+  border: none;
+  padding: 1rem 0;
+  cursor: pointer;
+  font-size: 1rem;
+  color: black;
+  text-align: center;
+  width: 20%;
+  border-right: 1px solid #bbb;
+}
+
+.navBtn:last-child {
+  border-right: none;
+}
+
+/* Hide navigation on desktop */
+@media (min-width: 992px) {
+  nav {
+    display: none;
   }
   
-  @media (min-width: 768px) {
-    main {
-      grid-template-columns: 1fr 1fr;
-    }
+  body {
+    padding-bottom: 0;
   }
-  
-  @media (min-width: 1024px) {
-    main {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
+}
+
+/* Add padding to ensure content isn't hidden behind nav on mobile */
+@media (max-width: 991px) {
+  body {
+    padding-bottom: 60px;
   }
+}

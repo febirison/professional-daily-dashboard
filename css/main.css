@@ -1,66 +1,198 @@
 :root {
-    --deep-blue: #1A5F7A;
-    --soft-white: #F8F9FA;
-    --charcoal: #2D3142;
-    --accent-blue: #57C4E5;
-    --soft-gray: #E0E0E0;
-    --success-green: #4CAF50;
-    --alert-red: #F44336;
-    --font-primary: 'Inter', system-ui, sans-serif;
-    --font-secondary: 'DM Serif Display', Georgia, serif;
-  }
-  
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: var(--font-primary);
-    background-color: var(--soft-white);
-    color: var(--charcoal);
-    font-size: 16px;
-    line-height: 1.6;
-  }
-  
-  header, footer {
-    background-color: var(--deep-blue);
-    color: white;
-    padding: 1rem;
-    text-align: center;
-  }
-  
-  header h1 {
-    font-family: var(--font-secondary);
-    font-size: 2.441rem;
-  }
-  
-  #profileBtn {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background-color: var(--accent-blue);
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  nav {
-    display: flex;
-    justify-content: space-around;
-    background-color: var(--soft-gray);
-    padding: 0.5rem;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-  
-  .navBtn {
-    background: none;
-    border: none;
-    padding: 0.5rem;
-    cursor: pointer;
-    font-size: 1rem;
-  }
+  --deep-blue: #1A6680;
+  --header-blue: #17566E;
+  --soft-white: #F8F9FA;
+  --charcoal: #2D3142;
+  --accent-blue: #57C4E5;
+  --soft-gray: #E0E0E0;
+  --medium-gray: #D1D1D1;
+  --light-gray: #EEEEEE;
+  --success-green: #4CAF50;
+  --alert-red: #F44336;
+  --font-primary: 'Inter', system-ui, sans-serif;
+  --font-secondary: 'DM Serif Display', Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: black;
+  font-size: 16px;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #ccc;
+  padding: 1rem;
+  text-align: center;
+  position: relative;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  background-color: #ccc;
+  padding: 0.75rem;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+#profileBtn {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  background-color: #98D7E7;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+section {
+  padding: 1rem;
+}
+
+/* Section headers */
+section h2 {
+  text-align: center;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+/* Business News */
+.news-article {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.news-article:last-child {
+  border-bottom: none;
+}
+
+.news-article h3 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+
+.news-article p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Weather Widget */
+.current-temp {
+  font-size: 3.5rem;
+  text-align: center;
+  font-weight: normal;
+}
+
+.weather-condition {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.hourly-forecast {
+  display: flex;
+  justify-content: space-between;
+}
+
+.forecast-hour {
+  text-align: center;
+  background-color: #f5f5f5;
+  padding: 0.5rem;
+  flex: 1;
+  margin: 0 0.25rem;
+}
+
+/* Today's Schedule */
+.event-list {
+  list-style: none;
+  padding: 0;
+}
+
+.event-list li {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.event-list li:last-child {
+  border-bottom: none;
+}
+
+.event-time {
+  font-weight: bold;
+}
+
+.event-details {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Focus Timer */
+#focusTimer p {
+  font-size: 3.5rem;
+  text-align: center;
+  margin: 2rem 0;
+  font-family: monospace;
+}
+
+.timer-controls {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+#startTimerBtn, #resetTimerBtn {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#startTimerBtn {
+  background-color: #a4e8a4;
+}
+
+#resetTimerBtn {
+  background-color: #f8a5a5;
+}
+
+/* Daily Motivation */
+#dailyMotivation blockquote {
+  font-style: italic;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+#dailyMotivation footer {
+  text-align: right;
+  padding: 0;
+  background: none;
+  font-style: italic;
+}
+
+/* Bottom Navigation */
+.navBtn {
+  text-transform: none;
+  font-weight: normal;
+}

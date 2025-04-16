@@ -1,0 +1,124 @@
+/* Light Theme (Default) */
+:root {
+  --header-bg: #1A6680;
+  --section-bg: #EEEEEE;
+  --card-bg: #FFFFFF;
+  --text-color: #2D3142;
+  --secondary-text: #575F73;
+  --border-color: #D1D1D1;
+  --primary-btn: #1A6680;
+  --hover-btn: #57C4E5;
+  --active-element: #1A6680;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Theme */
+body.dark {
+  --header-bg: #17384A;
+  --section-bg: #292929;
+  --card-bg: #333333;
+  --text-color: #F0F0F0;
+  --secondary-text: #B0B0B0;
+  --border-color: #444444;
+  --primary-btn: #1A6680;
+  --hover-btn: #57C4E5;
+  --active-element: #57C4E5;
+  --shadow-color: rgba(0, 0, 0, 0.25);
+}
+
+/* Light theme specific styles */
+body.light {
+  background-color: #F8F9FA;
+  color: var(--text-color);
+}
+
+body.light header,
+body.light footer {
+  background-color: var(--header-bg);
+}
+
+body.light section {
+  background-color: var(--section-bg);
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+body.light .news-article, 
+body.light .forecast-hour, 
+body.light .event-list li {
+  background-color: var(--card-bg);
+  border-left: 3px solid var(--active-element);
+}
+
+body.light #dailyMotivation {
+  background-color: var(--header-bg);
+  color: #FFFFFF;
+}
+
+/* Dark theme specific styles */
+body.dark {
+  background-color: #1E1E1E;
+  color: var(--text-color);
+}
+
+body.dark header,
+body.dark footer {
+  background-color: var(--header-bg);
+}
+
+body.dark section {
+  background-color: var(--section-bg);
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+body.dark section h2 {
+  color: #57C4E5;
+  border-bottom-color: #444444;
+}
+
+body.dark .news-article, 
+body.dark .forecast-hour, 
+body.dark .event-list li {
+  background-color: var(--card-bg);
+  border-left: 3px solid var(--active-element);
+}
+
+body.dark #dailyMotivation {
+  background-color: #17384A;
+  color: #FFFFFF;
+}
+
+body.dark .category-btn {
+  background-color: #333333;
+  color: #F0F0F0;
+}
+
+body.dark .category-btn.active {
+  background-color: var(--active-element);
+  color: white;
+}
+
+body.dark .nav {
+  background-color: #252525;
+}
+
+body.dark input, 
+body.dark select, 
+body.dark textarea {
+  background-color: #3A3A3A;
+  border-color: #444444;
+  color: #F0F0F0;
+}
+
+/* General theme-aware styling */
+section {
+  background-color: var(--section-bg);
+}
+
+.news-article, .forecast-hour, .event-list li {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+.weather-icon, .forecast-icon {
+  color: var(--active-element);
+}
