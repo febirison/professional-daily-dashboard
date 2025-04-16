@@ -12,34 +12,61 @@ export class NewsWidget {
     }
     
     console.log("NewsWidget: Container found, initializing...");
-    this.render();
+    await this.fetchNews();
   }
 
-  render() {
-    // Static content to match wireframe exactly
+  async fetchNews() {
+    try {
+      this.container.innerHTML = `
+        <h2>Business News Headlines</h2>
+        <div class="news-articles">
+          <p>Loading news...</p>
+        </div>
+      `;
+
+      const response = await fetch(
+        `https://newsdata.io/api/1/news?category=${this.category}&language=en&apikey=${this.apiKey}`
+      );
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log("NewsWidget: Fetched data:", data);
+
+      if (data.status === "success" && data.results && data.results.length > 0) {
+        this.render(data.results);
+      } else {
+        throw new Error("No news articles found.");
+      }
+    } catch (error) {
+      console.error("NewsWidget: Error fetching news:", error);
+      this.container.innerHTML = `
+        <h2>Business News Headlines</h2>
+        <div class="news-articles">
+          <p>Unable to load news. Please try again later.</p>
+        </div>
+      `;
+    }
+  }
+
+  render(articles) {
+    const newsArticles = articles.slice(0, 5).map(article => {
+      const title = article.title || "No title available";
+      const description = article.description || "No description available";
+      return `
+        <div class="news-article">
+          <h3>${title}</h3>
+          <p>${description}</p>
+        </div>
+      `;
+    }).join('');
+
     this.container.innerHTML = `
       <h2>Business News Headlines</h2>
       <div class="news-articles">
-        <div class="news-article">
-          <h3>News Headline 1</h3>
-          <p>Short description of the news article...</p>
-        </div>
-        <div class="news-article">
-          <h3>News Headline 2</h3>
-          <p>Short description of the news article...</p>
-        </div>
-        <div class="news-article">
-          <h3>News Headline 3</h3>
-          <p>Short description of the news article...</p>
-        </div>
-        <div class="news-article">
-          <h3>News Headline 4</h3>
-          <p>Short description of the news article...</p>
-        </div>
-        <div class="news-article">
-          <h3>News Headline 5</h3>
-          <p>Short description of the news article...</p>
-        </div>
+        ${newsArticles}
       </div>
     `;
   }
