@@ -1,7 +1,7 @@
 export class WeatherWidget {
   constructor() {
     this.container = document.getElementById('weatherForecast');
-    this.apiKey = 'YOUR_OPENWEATHERMAP_API_KEY'; // Replace with your OpenWeatherMap API key
+    this.apiKey = 'a2080e2709ac6ae0d61a7f533078aade'; // OpenWeatherMap API key
     this.city = 'London'; // Default city, can be made configurable later
   }
 
