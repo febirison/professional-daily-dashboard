@@ -22,7 +22,7 @@ export class QuoteWidget {
         </div>
       `;
 
-      const response = await fetch('https://zenquotes.io/api/random');
+      const response = await fetch('https://api.quotable.io/random');
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -31,25 +31,29 @@ export class QuoteWidget {
       const data = await response.json();
       console.log("QuoteWidget: Fetched data:", data);
 
-      if (data && data.length > 0) {
-        this.render(data[0]);
+      if (data && data.content && data.author) {
+        this.render(data);
       } else {
-        throw new Error("No quote found.");
+        throw new Error("Invalid quote data received.");
       }
     } catch (error) {
       console.error("QuoteWidget: Error fetching quote:", error);
+      // Fallback to a static quote if API fails
       this.container.innerHTML = `
         <h2>Daily Motivation</h2>
         <div class="quote-content">
-          <p>Unable to load quote. Please try again later.</p>
+          <blockquote>
+            "The only way to do great work is to love what you do."
+          </blockquote>
+          <cite>— Steve Jobs</cite>
         </div>
       `;
     }
   }
 
   render(quoteData) {
-    const quote = quoteData.q || "No quote available";
-    const author = quoteData.a || "Unknown";
+    const quote = quoteData.content || "No quote available";
+    const author = quoteData.author || "Unknown";
 
     this.container.innerHTML = `
       <h2>Daily Motivation</h2>
