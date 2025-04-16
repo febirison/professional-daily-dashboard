@@ -162,21 +162,6 @@ section h2 {
   gap: 2rem;
 }
 
-#startTimerBtn, #resetTimerBtn {
-  padding: 0.5rem 1.5rem;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-#startTimerBtn {
-  background-color: #a4e8a4;
-}
-
-#resetTimerBtn {
-  background-color: #f8a5a5;
-}
-
 /* Daily Motivation */
 #dailyMotivation blockquote {
   font-style: italic;

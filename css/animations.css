@@ -1,125 +1,125 @@
 /* Fade-in animation for sections */
 section {
-    animation: fadeIn 0.5s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  to {
+    opacity: 1;
   }
-  
-  /* Hover effect for news articles */
-  .news-article {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for news articles */
+.news-article {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Pulse animation for timer on start */
+#focusTimer p {
+  transition: transform 0.2s ease;
+}
+
+#focusTimer p.active {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
   }
-  
-  .news-article:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  50% {
+    transform: scale(1.05);
   }
-  
-  /* Pulse animation for timer on start */
-  #focusTimer p {
-    transition: transform 0.2s ease;
+  100% {
+    transform: scale(1);
   }
-  
-  #focusTimer p.active {
-    animation: pulse 2s infinite;
+}
+
+/* Rotate effect for profile button */
+#profileBtn {
+  transition: transform 0.3s ease;
+}
+
+#profileBtn:hover {
+  transform: rotate(360deg);
+}
+
+/* Add animations for UI elements */
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
   }
-  
-  @keyframes pulse {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.05);
-    }
-    100% {
-      transform: scale(1);
-    }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
-  /* Rotate effect for profile button */
-  #profileBtn {
-    transition: transform 0.3s ease;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  #profileBtn:hover {
+  100% {
     transform: rotate(360deg);
   }
+}
 
-  /* Add animations for UI elements */
-  @keyframes slideUp {
-    from {
-      transform: translateY(20px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
+/* Apply animations */
+.news-article, .forecast-hour, .event-list li {
+  animation: slideUp 0.5s ease-out;
+  animation-fill-mode: both;
+}
 
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+.news-article:nth-child(1) { animation-delay: 0.1s; }
+.news-article:nth-child(2) { animation-delay: 0.2s; }
+.news-article:nth-child(3) { animation-delay: 0.3s; }
+.news-article:nth-child(4) { animation-delay: 0.4s; }
+.news-article:nth-child(5) { animation-delay: 0.5s; }
 
-  /* Apply animations */
-  .news-article, .forecast-hour, .event-list li {
-    animation: slideUp 0.5s ease-out;
-    animation-fill-mode: both;
-  }
+.forecast-hour:nth-child(1) { animation-delay: 0.1s; }
+.forecast-hour:nth-child(2) { animation-delay: 0.2s; }
+.forecast-hour:nth-child(3) { animation-delay: 0.3s; }
+.forecast-hour:nth-child(4) { animation-delay: 0.4s; }
+.forecast-hour:nth-child(5) { animation-delay: 0.5s; }
 
-  .news-article:nth-child(1) { animation-delay: 0.1s; }
-  .news-article:nth-child(2) { animation-delay: 0.2s; }
-  .news-article:nth-child(3) { animation-delay: 0.3s; }
-  .news-article:nth-child(4) { animation-delay: 0.4s; }
-  .news-article:nth-child(5) { animation-delay: 0.5s; }
+.event-list li:nth-child(1) { animation-delay: 0.1s; }
+.event-list li:nth-child(2) { animation-delay: 0.2s; }
+.event-list li:nth-child(3) { animation-delay: 0.3s; }
+.event-list li:nth-child(4) { animation-delay: 0.4s; }
+.event-list li:nth-child(5) { animation-delay: 0.5s; }
 
-  .forecast-hour:nth-child(1) { animation-delay: 0.1s; }
-  .forecast-hour:nth-child(2) { animation-delay: 0.2s; }
-  .forecast-hour:nth-child(3) { animation-delay: 0.3s; }
-  .forecast-hour:nth-child(4) { animation-delay: 0.4s; }
-  .forecast-hour:nth-child(5) { animation-delay: 0.5s; }
+/* Button hover animations */
+button:not(.navBtn):not(#startTimerBtn):not(#resetTimerBtn) {
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
 
-  .event-list li:nth-child(1) { animation-delay: 0.1s; }
-  .event-list li:nth-child(2) { animation-delay: 0.2s; }
-  .event-list li:nth-child(3) { animation-delay: 0.3s; }
-  .event-list li:nth-child(4) { animation-delay: 0.4s; }
-  .event-list li:nth-child(5) { animation-delay: 0.5s; }
+button:not(.navBtn):not(#startTimerBtn):not(#resetTimerBtn):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-  /* Button hover animations */
-  button:not(.navBtn) {
-    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-  }
+button:not(.navBtn):not(#startTimerBtn):not(#resetTimerBtn):active {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-  button:not(.navBtn):hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+/* Card hover effects */
+.forecast-hour:hover, 
+.event-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
 
-  button:not(.navBtn):active {
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  /* Card hover effects */
-  .forecast-hour:hover, 
-  .event-list li:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  }
-
-  /* Loading spinner animation */
-  .spinner {
-    animation: spin 1s linear infinite;
-  }
+/* Loading spinner animation */
+.spinner {
+  animation: spin 1s linear infinite;
+}

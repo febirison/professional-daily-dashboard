@@ -25,8 +25,8 @@ export class TimerWidget {
         <span class="timer-value">25:00</span>
       </div>
       <div class="timer-controls">
-        <button class="timer-btn start-btn">Start</button>
-        <button class="timer-btn reset-btn">Reset</button>
+        <button id="startTimerBtn" class="timer-btn start-btn">Start</button>
+        <button id="resetTimerBtn" class="timer-btn reset-btn">Reset</button>
       </div>
       <div class="timer-options">
         <button class="time-option selected" data-time="25">25m</button>
