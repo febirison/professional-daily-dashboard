@@ -151,7 +151,7 @@
 #dailyMotivation blockquote {
   font-style: italic;
   font-size: 1.25rem;
-  color: var(--charcoal);
+  color: black;
   margin: 1rem 0;
   line-height: 1.4;
 }
@@ -901,12 +901,12 @@
 }
 
 #startTimerBtn {
-  background-color: var(--success-green);
+  background-color: #245125; /* Success green color */
   color: white;
 }
 
 #resetTimerBtn {
-  background-color: var(--alert-red);
+  background-color: #9e0000; /* Alert red color */
   color: white;
 }
 
