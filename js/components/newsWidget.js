@@ -2,7 +2,7 @@ export class NewsWidget {
   constructor() {
     this.container = document.getElementById('businessNews');
     this.apiKey = 'pub_79418a814f98f6d714cb5ccd904cb8d8d3241'; // Newsdata.io key
-    this.category = 'business'; // Always show business news to match wireframe
+    this.category = 'business'; 
   }
 
   async init() {
