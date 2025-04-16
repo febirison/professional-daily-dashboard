@@ -9,13 +9,12 @@ const urlsToCache = [
   '/css/animations.css',
   '/css/themes.css',
   '/js/app.js',
-  '/js/utils/storage.js',
-  '/js/services/weatherService.js',
-  '/js/services/newsService.js',
-  '/js/services/quoteService.js',
   '/js/components/weatherWidget.js',
   '/js/components/newsWidget.js',
-  '/js/components/quoteWidget.js'
+  '/js/components/quoteWidget.js',
+  '/js/components/calendarWidget.js',
+  '/js/components/timerWidget.js',
+  '/js/components/noteWidget.js'
 ];
 
 self.addEventListener('install', event => {
@@ -32,19 +31,7 @@ self.addEventListener('fetch', event => {
       if (response) {
         return response;
       }
-
-      return fetch(event.request).then(networkResponse => {
-        if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
-          return networkResponse;
-        }
-
-        const responseToCache = networkResponse.clone();
-        caches.open(CACHE_NAME).then(cache => {
-          cache.put(event.request, responseToCache);
-        });
-
-        return networkResponse;
-      }).catch(() => {
+      return fetch(event.request).catch(() => {
         if (event.request.mode === 'navigate') {
           return caches.match('/offline.html');
         }

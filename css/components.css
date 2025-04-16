@@ -1,23 +1,57 @@
-/* Components CSS for Weather  */
-/* Define color variables */
-#weatherForecast {
+#weatherForecast, #businessNews, #dailyMotivation, #todaysSchedule, #focusTimer, #quickNotes {
   background-color: var(--soft-gray);
   padding: 1rem;
   border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #ddd;
 }
 
 .current-weather {
   text-align: center;
+  margin: 1.5rem 0;
 }
 
 .current-weather p:first-child {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
+  margin-bottom: 0.25rem;
 }
 
-.current-weather img {
-  width: 64px;
-  height: 64px;
+.current-weather p:last-child {
+  font-size: 1.1rem;
+}
+
+.location-name {
+  font-size: 1rem;
+  font-style: italic;
+  margin-top: 0.25rem;
+}
+
+.location-selector {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.location-selector input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid var(--soft-gray);
+  border-radius: 4px 0 0 4px;
+  font-size: 0.9rem;
+}
+
+.location-selector button {
+  background-color: var(--deep-blue);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.location-selector button:hover {
+  background-color: var(--accent-blue);
 }
 
 .hourly-forecast {
@@ -28,39 +62,69 @@
 
 .hourly-forecast div {
   text-align: center;
+  background-color: var(--soft-white);
+  padding: 0.5rem;
+  border-radius: 4px;
+  min-width: 60px;
 }
 
-.hourly-forecast img {
-  width: 32px;
-  height: 32px;
+.hourly-forecast p {
+  margin: 0.25rem 0;
 }
 
-#businessNews {
-  background-color: var(--soft-gray);
-  padding: 1rem;
-  border-radius: 8px;
+.hourly-forecast p:first-child {
+  font-weight: bold;
 }
 
 .news-articles {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem;
+}
+
+.category-selector {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.category-selector select {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid var(--soft-gray);
+  border-radius: 4px 0 0 4px;
+  font-size: 0.9rem;
+  background-color: var(--soft-white);
+}
+
+.category-selector button {
+  background-color: var(--deep-blue);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.category-selector button:hover {
+  background-color: var(--accent-blue);
 }
 
 .news-article {
   background-color: var(--soft-white);
-  padding: 1rem;
+  padding: 0.75rem;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0.5rem;
+  border-left: 3px solid var(--deep-blue);
 }
 
 .news-article h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: var(--deep-blue);
 }
 
 .news-article p {
-  font-size: 1rem;
+  font-size: 0.875rem;
   color: var(--charcoal);
   margin-bottom: 0.5rem;
 }
@@ -68,6 +132,8 @@
 .news-article a {
   color: var(--deep-blue);
   text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 
 .news-article a:hover {
@@ -75,10 +141,11 @@
 }
 
 #dailyMotivation {
-  background-color: var(--soft-gray);
-  padding: 1rem;
-  border-radius: 8px;
   text-align: center;
+}
+
+#dailyMotivation h2 {
+  margin-bottom: 1rem;
 }
 
 #dailyMotivation blockquote {
@@ -86,17 +153,767 @@
   font-size: 1.25rem;
   color: var(--charcoal);
   margin: 1rem 0;
+  line-height: 1.4;
 }
 
 #dailyMotivation footer {
   font-size: 1rem;
   color: var(--deep-blue);
-  margin-top: 0.5rem;
+  background: none;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+  font-weight: 500;
 }
 
-/* Responsive adjustments */
-@media (min-width: 768px) {
-  #businessNews {
-    grid-column: span 2;
+.event-list {
+  list-style: none;
+  padding: 0;
+}
+
+.event-list li {
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  background-color: var(--soft-white);
+  border-radius: 4px;
+  position: relative;
+}
+
+.event-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.event-time {
+  font-weight: bold;
+  color: var(--deep-blue);
+  margin-right: 0.5rem;
+  white-space: nowrap;
+}
+
+.event-title {
+  flex: 1;
+}
+
+.event-details {
+  font-size: 0.85rem;
+  color: var(--charcoal);
+  margin-left: 1.5rem;
+}
+
+.delete-event {
+  background: none;
+  border: none;
+  color: var(--alert-red);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0 0.5rem;
+}
+
+.current-date {
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.add-event {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.add-event input {
+  padding: 0.5rem;
+  border: 1px solid var(--soft-gray);
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.add-event input:first-child {
+  grid-column: 1 / 2;
+}
+
+.add-event input:nth-child(2) {
+  grid-column: 2 / 3;
+}
+
+.add-event input:nth-child(3) {
+  grid-column: 1 / 3;
+}
+
+.add-event button {
+  grid-column: 1 / 3;
+  background-color: var(--deep-blue);
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-event button:hover {
+  background-color: var(--accent-blue);
+}
+
+#focusTimer {
+  text-align: center;
+}
+
+#focusTimer p {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 1.5rem 0;
+  font-family: monospace;
+}
+
+.timer-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+#startTimerBtn, #resetTimerBtn {
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+  border: none;
+  font-size: 1rem;
+}
+
+#startTimerBtn {
+  background-color: var(--success-green);
+  color: white;
+}
+
+#resetTimerBtn {
+  background-color: var(--alert-red);
+  color: white;
+}
+
+#startTimerBtn:hover, #resetTimerBtn:hover {
+  transform: scale(1.05);
+}
+
+#noteInput {
+  width: 100%;
+  height: 100px;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--soft-gray);
+  resize: none;
+  margin-bottom: 0.5rem;
+}
+
+#saveNoteBtn {
+  background-color: var(--deep-blue);
+  color: var(--soft-white);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#saveNoteBtn:hover {
+  transform: scale(1.05);
+}
+
+/* Section Headers */
+#weatherForecast h2, 
+#businessNews h2, 
+#dailyMotivation h2, 
+#todaysSchedule h2, 
+#focusTimer h2, 
+#quickNotes h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--deep-blue);
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+/* Profile Dialog Styles */
+.profile-dialog {
+  background-color: var(--soft-white);
+  color: var(--charcoal);
+  border: none;
+  border-radius: 8px;
+  padding: 0;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.profile-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialog-header {
+  background-color: var(--deep-blue);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dialog-header h2 {
+  margin: 0;
+  color: white;
+  border: none;
+}
+
+#closeDialog {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.setting-group {
+  margin: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--medium-gray);
+}
+
+.setting-group:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.setting-group h3 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: var(--deep-blue);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--medium-gray);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.theme-options {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.theme-option {
+  flex: 1;
+  min-width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.theme-option:hover {
+  transform: translateY(-3px);
+}
+
+.theme-option.selected {
+  border-color: var(--deep-blue);
+  background-color: rgba(26, 102, 128, 0.05);
+}
+
+.theme-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.theme-preview {
+  width: 100%;
+  height: 80px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--medium-gray);
+  margin-bottom: 0.5rem;
+}
+
+.light-preview {
+  background-color: #f0f0f0;
+}
+
+.light-preview .preview-header {
+  background-color: var(--deep-blue);
+  height: 20px;
+}
+
+.light-preview .preview-content {
+  background-color: white;
+  height: 60px;
+}
+
+.dark-preview {
+  background-color: #2c2c2c;
+}
+
+.dark-preview .preview-header {
+  background-color: #1a1a1a;
+  height: 20px;
+}
+
+.dark-preview .preview-content {
+  background-color: #333333;
+  height: 60px;
+}
+
+.dialog-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin: 1.5rem;
+}
+
+.dialog-buttons button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+/* Add styles for weather widget */
+.weather-content {
+  padding: 1rem;
+}
+
+.weather-main {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.weather-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: var(--deep-blue);
+}
+
+.current-temp {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.weather-condition {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.weather-details {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--soft-white);
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.daily-forecast {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  gap: 0.5rem;
+}
+
+.forecast-day {
+  flex: 1;
+  text-align: center;
+  background-color: var(--soft-white);
+  padding: 0.75rem 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.forecast-day:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.forecast-date {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.forecast-icon {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+  color: var(--deep-blue);
+}
+
+.forecast-temp {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.forecast-min-temp {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 0.5rem;
+}
+
+.forecast-condition {
+  font-size: 0.8rem;
+  color: var(--charcoal);
+}
+
+.hourly-forecast {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.forecast-hour {
+  text-align: center;
+  min-width: 60px;
+  background-color: var(--soft-white);
+  padding: 0.75rem 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.forecast-hour:hover {
+  transform: translateY(-3px);
+}
+
+.forecast-time {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.forecast-icon {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--deep-blue);
+}
+
+.forecast-temp {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.weather-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.unit-toggle {
+  text-align: center;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.unit-btn {
+  background-color: var(--medium-gray);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  font-weight: bold;
+}
+
+.unit-btn:hover {
+  transform: translateY(-2px);
+}
+
+.unit-btn.active {
+  background-color: var(--deep-blue);
+  color: white;
+}
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-left: 4px solid var(--deep-blue);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.error-state {
+  padding: 1rem;
+  text-align: center;
+}
+
+.error-state p {
+  margin-bottom: 1rem;
+  color: var(--alert-red);
+}
+
+.retry-btn {
+  background-color: var(--deep-blue);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.retry-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Additional styles for news widget */
+.news-category-filter {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  gap: 0.5rem;
+}
+
+.category-btn {
+  background-color: var(--medium-gray);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.category-btn:hover {
+  background-color: var(--soft-gray);
+  transform: translateY(-2px);
+}
+
+.category-btn.active {
+  background-color: var(--deep-blue);
+  color: white;
+}
+
+.news-wrapper {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.news-article {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.news-article:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.news-article::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: var(--deep-blue);
+  border-radius: 4px 0 0 4px;
+}
+
+.news-article-source {
+  font-size: 0.8rem;
+  color: var(--deep-blue);
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+
+.news-article-date {
+  font-size: 0.75rem;
+  color: #777;
+  margin-bottom: 0.25rem;
+}
+
+/* Daily motivation styling */
+#dailyMotivation {
+  background-color: var(--deep-blue);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+#dailyMotivation:hover {
+  transform: translateY(-5px);
+}
+
+#dailyMotivation::before {
+  content: '"';
+  position: absolute;
+  font-size: 10rem;
+  opacity: 0.1;
+  top: -20px;
+  left: 10px;
+  font-family: Georgia, serif;
+}
+
+#dailyMotivation h2 {
+  color: white;
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+#dailyMotivation blockquote {
+  position: relative;
+  z-index: 1;
+}
+
+#dailyMotivation blockquote p {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin: 1.5rem 0;
+}
+
+#dailyMotivation footer {
+  color: rgba(255, 255, 255, 0.8);
+  font-style: italic;
+  text-align: right;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+}
+
+/* Focus timer styling */
+#focusTimer p {
+  font-family: 'Courier New', monospace;
+  font-size: 3.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 2rem 0;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#focusTimer p.active {
+  color: var(--success-green);
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+.timer-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#startTimerBtn, #resetTimerBtn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#startTimerBtn {
+  background-color: var(--success-green);
+  color: white;
+}
+
+#resetTimerBtn {
+  background-color: var(--alert-red);
+  color: white;
+}
+
+#startTimerBtn:hover, #resetTimerBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#startTimerBtn:active, #resetTimerBtn:active {
+  transform: translateY(-1px);
+}
+
+/* Toast notifications */
+.toast-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: var(--deep-blue);
+  color: white;
+  padding: 1rem 2rem 1rem 1rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transform: translateX(120%);
+  transition: transform 0.3s ease;
+  max-width: 300px;
+}
+
+.toast-notification.visible {
+  transform: translateX(0);
+}
+
+.toast-notification p {
+  margin: 0;
+}
+
+.toast-close {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
 }
