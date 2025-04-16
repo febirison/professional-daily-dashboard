@@ -55,9 +55,10 @@ export class NewsWidget {
     const newsArticles = articles.slice(0, 5).map(article => {
       const title = article.title || "No title available";
       const description = article.description || "No description available";
+      const link = article.link || "#";
       return `
         <div class="news-article">
-          <h3>${title}</h3>
+          <h3><a href="${link}" class="news-link">${title}</a></h3>
           <p>${description}</p>
         </div>
       `;
@@ -69,5 +70,15 @@ export class NewsWidget {
         ${newsArticles}
       </div>
     `;
+
+    // Add event listeners to each link to open in a new tab
+    // This is a workaround for the CORS issue with the API response
+    const links = this.container.querySelectorAll('.news-link');
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent default behavior to handle programmatically
+        window.open(link.href, '_blank');
+      });
+    });
   }
 }

@@ -64,5 +64,15 @@ export class WeatherWidget {
         </div>
       </div>
     `;
+
+    // Add event listeners for hover effects
+    const weatherMain = this.container.querySelector('.weather-main');
+    const tempElement = this.container.querySelector('.current-temp');
+    weatherMain.addEventListener('mouseover', () => {
+      tempElement.style.fontWeight = 'bold';
+    });
+    weatherMain.addEventListener('mouseout', () => {
+      tempElement.style.fontWeight = 'normal';
+    });
   }
 }
